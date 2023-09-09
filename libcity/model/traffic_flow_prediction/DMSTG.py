@@ -352,7 +352,6 @@ class CrossAttention(nn.Module):
     def forward(self, x, y):
         B, D, T, N = x.shape
 
-        # x作为Q，y作为K和V
         sem_q = self.sem_q_conv(x).permute(0, 2, 3, 1)
         sem_k = self.sem_k_conv(y).permute(0, 2, 3, 1)
         sem_v = self.sem_v_conv(y).permute(0, 2, 3, 1)
